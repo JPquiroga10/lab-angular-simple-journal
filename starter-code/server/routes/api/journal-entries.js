@@ -10,14 +10,14 @@ router.get('/journal-entries', (req, res, next) => {
   });
 });
 
-router.get('/journal-entries/:id', (req, res, next) => {
-  Entry.findById(req.params.id, (err, entry) => {
-    if (err)    { return res.json(err).status(500); }
-    if (!entry) { return res.json(err).status(404); }
+// router.get('/journal-entries/:id', (req, res, next) => {
+//   Entry.findById(req.params.id, (err, entry) => {
+//     if (err)    { return res.json(err).status(500); }
+//     if (!entry) { return res.json(err).status(404); }
 
-    return res.json(entry);
-  });
-});
+//     return res.json(entry);
+//   });
+// });
 
 router.post('/journal-entries', (req, res, next) => {
   const newEntry = new Entry({

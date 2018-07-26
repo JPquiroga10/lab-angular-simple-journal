@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EntryService } from './services/entry.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  list: any;
+
+  constructor(private lists: EntryService) { }
+
+  ngOnInit(){
+    this.displayList()
+  }
+
+  displayList(){
+    this.lists.getList().subscribe((list) => {
+      this.list = list
+    });
+  }
+
+  
 }
